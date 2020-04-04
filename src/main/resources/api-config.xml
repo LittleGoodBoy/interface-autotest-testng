@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
+<root>
+	<excelConfig>
+        <param name="excelType" value="xlsx"></param>
+        <param name="excelColumns" value="10"></param>
+    </excelConfig>
+	
+    <reqConfig>
+        <param name="reqTimeout" value="20000"></param>
+        <param name="reqContentTypeJson" value="application/json"></param>
+        <param name="reqContentTypeForm" value="application/x-www-form-urlencoded"></param>
+    </reqConfig>
+	
+	<headerConfig>
+		<param name="User-Agent" value="Mozilla/5.0"></param>
+        <param name="Accept" value="*/*"></param>
+        <param name="Accept-Language" value="zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3"></param>
+        <param name="Accept-Encoding" value="gzip, deflate"></param>
+    </headerConfig>
+
+    <dbcpConfig>
+		<param name="BatchSql" value="insert into autolog(testCase,reqType,reqUrl,reqData,expResult,actResult,result,execTime) values (?,?,?,?,?,?,?,?)"></param>
+		
+        <param name="DriverClassName" value="com.mysql.jdbc.Driver"></param>
+        <param name="Url" value="jdbc:mysql://127.0.0.1:3306/interface?characterEncoding=UTF-8"></param>
+        <param name="Username" value="root"></param>
+        <param name="Password" value="root"></param>
+        <param name="InitialSize" value="3"></param>
+        <param name="MinIdle" value="3"></param>
+		<param name="MaxIdle" value="3"></param>
+        <param name="MaxActive" value="3"></param>
+        <param name="TestOnBorrow" value="false"></param>
+        <param name="TestOnReturn" value="false"></param>
+		<param name="MaxWait" value="2000"></param>
+        <param name="PoolPreparedStatements" value="true"></param>
+    </dbcpConfig>
+</root>
+

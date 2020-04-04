@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
+<suite name="suite">
+  <parameter name="filePathParam"  value=".\\test-data\\app_testcase.xlsx"/>
+  
+  <!-- Test -->
+  <test name="接口测试用例">
+    <classes>
+      <class name="com.yanfuchang.autotest.test.TestRun"/>
+    </classes>
+  </test> 
+  
+  <listeners>
+  	  <!-- reportng报告替代testng默认报告 -->
+      <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+      <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+      
+      <!-- 用例执行错误进行重试 -->
+      <listener class-name="com.yanfuchang.autotest.listener.AnnotationTransformerImpl"/>
+      <!-- 去除reportng报告重试的用例 -->
+      <listener class-name="com.yanfuchang.autotest.listener.TestListenerImpl"/>
+  </listeners>
+</suite>
