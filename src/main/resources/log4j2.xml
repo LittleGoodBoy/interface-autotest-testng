@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <properties>
+        <!-- 文件输出格式 -->
+        <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} |-%-5level [%thread] %c [%L][%M] -| %msg%xEx%n</property>
+    </properties>
+
+    <appenders>
+        <!-- 输出控制台的配置 -->
+        <Console name="CONSOLE" target="system_out">
+            <!-- 控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch） -->
+            <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!-- 输出日志的格式 -->
+            <PatternLayout pattern="${PATTERN}"/>
+        </Console>
+
+        <File name="log" fileName="logs/app.log" append="false">
+            <PatternLayout pattern="${PATTERN}"/>
+        </File>
+
+        <File name="ERROR" fileName="logs/error.log" append="false">
+            <!-- 添加过滤器ThresholdFilter,可以有选择的输出某个级别以上的类别  onMatch="ACCEPT" onMismatch="DENY"意思是匹配就接受,否则直接拒绝 -->
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!-- 输出日志的格式 -->
+            <PatternLayout pattern="${PATTERN}"/>
+        </File>
+
+        <!-- 这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+        <RollingFile name="RollingFile" fileName="logs/app.log"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${PATTERN}"/>
+            <SizeBasedTriggeringPolicy size="100MB"/>
+        </RollingFile>
+    </appenders>
+
+    <loggers>
+        <root level="INFO">
+            <appender-ref ref="RollingFile"/>
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="ERROR"/>
+            <appender-ref ref="log"/>
+        </root>
+    </loggers>
+</configuration>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="suite">
-  <parameter name="filePathParam"  value=".\\test-data\\app_testcase.xlsx"/>
+  <parameter name="filePathParam"  value="./res/testCaseData.xlsx"/>
   
   <!-- Test -->
   <test name="接口测试用例">

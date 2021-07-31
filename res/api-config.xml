@@ -1,42 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<!-- excel配置 -->
-	<excelConfig>
-		<param name="excelType" value="xlsx" />
-		<param name="excelColumns" value="10" />
-	</excelConfig>
-	
-	<!-- 请求配置 -->
+    <!-- excel配置 -->
+    <excelConfig>
+        <param name="excelType" value="xlsx"/>
+        <param name="excelColumns" value="10"/>
+    </excelConfig>
+
+    <!-- 请求配置 -->
     <reqConfig>
-		<param name="reqTimeout" value="20000" />
-        <param name="reqContentTypeJson" value="application/json" />
-        <param name="reqContentTypeForm" value="application/x-www-form-urlencoded" />
+        <param name="reqTimeout" value="20000"/>
+        <param name="reqContentTypeJson" value="application/json"/>
+        <param name="reqContentTypeForm" value="application/x-www-form-urlencoded"/>
     </reqConfig>
-    
+
     <!-- header配置 -->
     <headerConfig>
-    	<param name="User-Agent" value="Mozilla/5.0" />
-        <param name="Accept" value="*/*" />
-        <param name="Accept-Language" value="zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3" />
-        <param name="Accept-Encoding" value="gzip, deflate" />
+        <param name="User-Agent" value="Mozilla/5.0"/>
+        <param name="Accept" value="*/*"/>
+        <param name="Accept-Language" value="zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3"/>
+        <param name="Accept-Encoding" value="gzip, deflate"/>
     </headerConfig>
-    
-	<!-- dbcp连接池配置 -->
+
+    <!-- dbcp连接池配置 -->
     <dbcpConfig>
-    	<param name="BatchSql" value="insert into autolog(testCase,reqType,reqUrl,reqData,expResult,actResult,result,execTime) values (?,?,?,?,?,?,?,?)"></param>
-    	
-        <param name="DriverClassName" value="com.mysql.jdbc.Driver"></param>
-        <param name="Url" value="jdbc:mysql://127.0.0.1:3306/interface?characterEncoding=UTF-8"></param>
-        <param name="Username" value="root"></param>
-        <param name="Password" value="root"></param>
-        <param name="InitialSize" value="3"></param>
-        <param name="MinIdle" value="3"></param>
-		<param name="MaxIdle" value="3"></param>
-        <param name="MaxActive" value="3"></param>
-        <param name="TestOnBorrow" value="false"></param>
-        <param name="TestOnReturn" value="false"></param>
-		<param name="MaxWait" value="2000"></param>
-        <param name="PoolPreparedStatements" value="true"></param><!-- 是否开启支持预编译 -->
+        <param name="BatchSql"
+               value="insert into autolog(testCase,reqType,reqUrl,reqData,expResult,actResult,result,execTime) values (?,?,?,?,?,?,?,?)"/>
+
+        <param name="DriverClassName" value="com.mysql.jdbc.Driver"/>
+        <param name="Url" value="jdbc:mysql://127.0.0.1:3306/autotest?characterEncoding=UTF-8"/>
+        <param name="Username" value="root"/>
+        <param name="Password" value="123456"/>
+        <param name="InitialSize" value="3"/>
+        <param name="MinIdle" value="3"/>
+        <param name="MaxIdle" value="3"/>
+        <param name="MaxActive" value="3"/>
+        <param name="TestOnBorrow" value="false"/>
+        <param name="TestOnReturn" value="false"/>
+        <param name="MaxWait" value="2000"/>
+        <param name="PoolPreparedStatements" value="true"/><!-- 是否开启支持预编译 -->
     </dbcpConfig>
 </root>
 
